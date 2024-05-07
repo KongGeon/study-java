@@ -25,13 +25,13 @@ public class DataType {
         System.out.println(3 % 7);  // 3 출력
 
 //      증감 연산
-        int i = 0;
-        int j = 10;
-        i++;
-        j--;
+        int aa = 0;
+        int bb = 10;
+        aa++;
+        bb--;
 
-        System.out.println(i);  // 1 출력
-        System.out.println(j);  // 9 출력
+        System.out.println(aa);  // 1 출력
+        System.out.println(bb);  // 9 출력
 
 
         /* -----------------참/거짓------------------*/
@@ -118,11 +118,61 @@ public class DataType {
 //        String.format은 문자열을 리턴하는 메서드이고, System.out.printf는 문자열을 출력하는 메서드라는 점에서 차이가 있다.
 
 
-        /* -----------------숫자------------------*/
+        /* -----------------StringBuffer------------------*/
 
-        /* -----------------숫자------------------*/
+//        append : 문자열을 생성
+        StringBuffer sb01 = new StringBuffer();  // StringBuffer 객체 sb 생성
+        sb01.append("hello");
+        sb01.append(" ");
+        sb01.append("jump to java");
+        String sbResult = sb01.toString(); //string자료형으로 변경
+        System.out.println(sbResult);  // "hello jump to java" 출력
 
-        /* -----------------숫자------------------*/
+//        이걸 string자료형으로 제작하면
+        String stResult = "";
+        stResult += "hello";
+        stResult += " ";
+        stResult += "jump to java"; // + 연산이 있을 때마다 새로운 string객체를 생성하므로(String 자료형은 값이 한 번 생성되면 변경할 수가 없다.) 이렇게하면 총 4개의 string자료형 객체가 만들어진다.
+        System.out.println(stResult);  // "hello jump to java" 출력
+
+//        StringBuffer 자료형은 String 자료형보다 무거운 편에 속한다. new StringBuffer()로 객체를 생성하면 String을 사용할 때보다 메모리 사용량도 많고 속도도 느리다. 따라서 문자열을 추가하거나 변경하는 작업이 많으면 StringBuffer를, 적으면 String을 사용하는 것이 유리하다.
+
+//        insert : 문자열을 삽입
+        StringBuffer sb02 = new StringBuffer();
+        sb02.append("jump to java");
+        sb02.insert(0, "hello ");
+        System.out.println(sb02.toString()); // hello jump to java 출력
+
+//        substring : String 자료형의 substring 메서드와 동일하게 동작
+        StringBuffer sb03 = new StringBuffer();
+        sb03.append("Hello jump to java");
+        System.out.println(sb03.substring(0, 4)); // Hell 출력, substring(시작 위치, 끝 위치)
+
+
+        /* -----------------배열------------------*/
+
+//        int[] odds = {1, 3, 5, 7, 9};
+//        String[] weeks = {"월", "화", "수", "목", "금", "토", "일"};
+
+//        배열 길이 설정
+        String[] weeks = new String[2];
+        weeks[0] = "월";
+        weeks[1] = "화";
+//        배열의 길이 구하기
+        for (int i = 0; i < weeks.length; i++) {
+            System.out.println(weeks[i]);
+            //월
+            //화
+        }
+
+//      배열오류
+//      System.out.println(weeks[7]);
+//      여덟 번째 배열값이 없으므로 ArrayIndexOutOfBoundsException 오류 발생
+
+        /* -----------------리스트------------------*/
+
+
+
 
         /* -----------------숫자------------------*/
 
