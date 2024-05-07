@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class DataType {
     public static void main(String[] args) {
 
@@ -170,9 +174,56 @@ public class DataType {
 //      여덟 번째 배열값이 없으므로 ArrayIndexOutOfBoundsException 오류 발생
 
         /* -----------------리스트------------------*/
+//        제네릭스: 뒷 부분의 자료형은 명확하므로 굳이 적지 않아도 된다.
+        ArrayList<String> pitches = new ArrayList<>();
 
+//        add
+        pitches.add("138");
+        pitches.add(0,"111"); //0번째에 추가
+        System.out.println(pitches); //[111, 138]
 
+//        get
+        System.out.println(pitches.get(1)); //138
 
+//        size
+        System.out.println(pitches.size()); //2, 개수 확인
+
+//        contains
+        System.out.println(pitches.contains("142")); //false
+        System.out.println(pitches.contains("111")); //true
+
+//        remove
+        System.out.println(pitches.remove("111"));  // 111을 리스트에서 삭제하고, true를 리턴한다.
+        System.out.println(pitches.remove(0));  // pitches의 첫 번째 항목이 138이므로, 138을 삭제한 뒤 138을 리턴한다.
+
+//        Arrays, 이미 문자열 배열이 있으면 ArrayList를 좀 더 편하게 생성할 수 있다.
+        String[] data = {"138", "129", "142"};  // 이미 투구수 데이터 배열이 있다.
+        ArrayList<String> pitches02 = new ArrayList<>(Arrays.asList(data));
+        System.out.println(pitches02);  // [138, 129, 142] 출력
+        ArrayList<String> pitches03 = new ArrayList<>(Arrays.asList("138", "129", "142"));
+        System.out.println(pitches03); // [138, 129, 142] 출력
+
+//        String.join :  각 요소를 콤마(,)로 구분해서 1개의 문자열
+//        String.join 없이 만들기
+        ArrayList<String> pitches04 = new ArrayList<>(Arrays.asList("138", "129", "142"));
+        String result04 = "";
+        for (int i = 0; i < pitches04.size(); i++) {
+            result04 += pitches04.get(i);
+            result04 += ",";  // 콤마를 추가한다.
+        }
+        result04 = result04.substring(0, result04.length() - 1);  // 마지막 콤마는 제거한다.
+        System.out.println(result04);  // 138,129,142 출력
+//        String.join 사용버전, 배열에도 사용가능
+        ArrayList<String> pitches05 = new ArrayList<>(Arrays.asList("138", "129", "142"));
+        String result05 = String.join(",", pitches05); //String.join("구분자", 리스트 객체)
+        System.out.println(result05);  // 138,129,142 출력
+
+//        리스트 정렬하기 : sort, Comparator
+        ArrayList<String> pitches06 = new ArrayList<>(Arrays.asList("138", "129", "142"));
+        pitches.sort(Comparator.naturalOrder());  // 오름차순으로 정렬
+        System.out.println(pitches06);  // [129, 138, 142] 출력
+//        오름차순(순방향) 정렬 - Comparator.naturalOrder()
+//        내림차순(역방향) 정렬 - Comparator.reverseOrder()
 
         /* -----------------숫자------------------*/
 
