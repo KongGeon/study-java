@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class DataType {
     public static void main(String[] args) {
@@ -225,9 +226,34 @@ public class DataType {
 //        오름차순(순방향) 정렬 - Comparator.naturalOrder()
 //        내림차순(역방향) 정렬 - Comparator.reverseOrder()
 
-        /* -----------------숫자------------------*/
+        /* -----------------맵------------------*/
+//        HashMap : 맵의 가장 큰 특징은 순서에 의존하지 않고 key로 value를 가져오는 것
+//        put
+        HashMap<String, String> map = new HashMap<>(); //HashMap의 제네릭스는 key, value 모두 String 자료형
+        map.put("people", "사람");
+        map.put("baseball", "야구");
 
-        /* -----------------숫자------------------*/
+//        get
+        System.out.println(map.get("people")); // "사람" 출력
+
+//        getOrDefault : key에 해당하는 value가 없을 때 get 메서드를 사용하면 null이 리턴된다. null 대신 기본값(default)을 얻고 싶다면 getOrDefault 메서드를 사용
+        System.out.println(map.getOrDefault("java", "자바"));  // "자바" 출력
+
+//        containsKey : 메서드는 맵에 해당 key가 있는지를 참(true) 또는 거짓(false)으로 리턴
+        System.out.println(map.containsKey("people"));  // true 출력
+
+//        remove
+        System.out.println(map.remove("people"));  // "사람" 출력
+
+//        size
+        System.out.println(map.size()); // 1
+
+//        keySet : 맵의 모든 key를 모아서 리턴
+        System.out.println(map.keySet());  // [baseball] 출력
+
+
+
+        /* -----------------집합------------------*/
 
         /* -----------------숫자------------------*/
 
