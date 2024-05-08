@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class DataType {
     public static void main(String[] args) {
@@ -254,6 +251,14 @@ public class DataType {
 
 
         /* -----------------집합------------------*/
+//        집합과 관련된 것을 쉽게 처리하기 위해 만든 것으로 HashSet, TreeSet, LinkedHashSet 등이 있다
+
+//        HashSet : 중복불가, 순서없음
+        HashSet<String> set = new HashSet<>(Arrays.asList("H", "e", "l", "l", "o"));
+        System.out.println(set);  //  [e, H, l, o] 출력
+
+
+
 
         /* -----------------숫자------------------*/
 
