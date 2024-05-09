@@ -257,13 +257,92 @@ public class DataType {
         HashSet<String> set = new HashSet<>(Arrays.asList("H", "e", "l", "l", "o"));
         System.out.println(set);  //  [e, H, l, o] 출력
 
+        HashSet<Integer> s1 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        HashSet<Integer> s2 = new HashSet<>(Arrays.asList(4, 5, 6, 7, 8, 9));
+//        교집합
+        HashSet<Integer> intersection = new HashSet<>(s1);  // s1으로 intersection 생성
+        intersection.retainAll(s2);  // 교집합 수행
+        System.out.println(intersection);  // [4, 5, 6] 출력
+
+//        합집합
+        HashSet<Integer> union = new HashSet<>(s1);  // s1으로 union 생성
+        union.addAll(s2); // 합집합 수행
+        System.out.println(union);  // [1, 2, 3, 4, 5, 6, 7, 8, 9] 출력
+
+//        차집합
+        HashSet<Integer> substract = new HashSet<>(s1);  // s1으로 substract 생성
+        substract.removeAll(s2); // 차집합 수행
+        System.out.println(substract);  // [1, 2, 3] 출력
+
+//        집합 자료형과 관련된 메서드 - add, addAll, remove
+//        add
+        HashSet<String> set02 = new HashSet<>();
+        set02.add("Jump");
+        set02.add("To");
+        set02.add("Java");
+        System.out.println(set02);  // [Java, To, Jump] 출력
+
+//        addAll
+        set02.addAll(Arrays.asList("ToTo", "JavaJava"));
+        System.out.println(set02);  // [Java, ToTo, To, Jump, JavaJava] 출력
+
+//        remove
+        set02.remove("To");
+        System.out.println(set02);  // [Java, ToTo, Jump, JavaJava] 출력
+
+        /*
+        TreeSet과 LinkedHashSet
+        집합 자료형의 특징은 순서가 없다는 것이다. 그런데 집합에 입력한 순서대로 데이터를 가져오거나 오름차순으로 정렬된 데이터를 가져오고 싶을 수 있다. 이럴 때는 TreeSet과 LinkedHashSet을 사용하자.
+
+        TreeSet : 값을 오름차순으로 정렬해 저장한다.
+        LinkedHashSet : 값을 입력한 순서대로 정렬한다.
+        */
+
+        /* -----------------상수 집합------------------*/
+//        enum 자료형은 서로 연관 있는 여러 개의 상수 집합을 정의할 때 사용
+        enum CoffeeType { //main메서드 밖의 class바로 밑에 선언해서도 사용가능
+            AMERICANO,
+            ICE_AMERICANO,
+            CAFE_LATTE
+        };
+
+        for(CoffeeType type: CoffeeType.values()) {
+            System.out.println(type);  // 순서대로 AMERICANO, ICE_AMERICANO, CAFE_LATTE 출력
+        }
 
 
+        /* -----------------형 변환------------------*/
 
-        /* -----------------숫자------------------*/
+        String num01 = "123";
 
-        /* -----------------숫자------------------*/
+        int n = Integer.parseInt(num01); //int로 변경
+        System.out.println(n);  // 123 출력
 
-        /* -----------------숫자------------------*/
+        String num02 = "" + n; // 정수로 변경
+        String num02_1 = String.valueOf(n); //정수로 변경 2
+        String num02_2 = Integer.toString(n); //정수로 변경 3
+        System.out.println(num02);  // 123 출력
+
+        String num03 = "123.456";
+        double d3 = Double.parseDouble(num03); // double(소수점있는 숫자)로 변경
+        System.out.println(d3);
+
+//        실수 사이의 형변환 : 자주사용안함
+        int n2 = 123;
+        double d4 = n2;  // 정수를 실수로 바꿀때에는 캐스팅이 필요없다.
+        System.out.println(d4);  // 123.0 출력
+
+        double d5 = 123.456;
+        int n4 = (int) d5; // 실수를 정수로 바꿀때에는 반드시 정수형으로 캐스팅해 주어야 한다.
+        System.out.println(n4);  // 소숫점이 생략된 123 출력
+
+        /* -----------------final------------------*/
+//        단 한 번만 설정할 수 있게 강제하는 키워드
+        final int n5 = 123;  // final로 설정하면 값을 바꿀 수 없다.
+//        n5 = 456;  // 컴파일 오류 발생
+
+//        리스트의 경우 final로 선언할 때 리스트에 값을 더하거나(add) 뺄(remove) 수 있다.
+        final List<String> z01 = List.of("a", "b"); //List.of로 작성하면 더하거나 뺼수도 없다.
+//        z.add("c");  // UnsupportedOperationException 발생
     }
 }
