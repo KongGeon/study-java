@@ -10,5 +10,9 @@ public class Sample {
         HouseDog yorkshire = new HouseDog(1);
         System.out.println(happy.name);  // happy 출력
         System.out.println(yorkshire.name);  // yorkshire 출력
+
+        Predator Lion = new Lion(); //인터페이스
+        ZooKeeper.feed(Lion); //feed banana
+        ZooKeeper.printfeed(Lion); //my food is banana
     }
 }
