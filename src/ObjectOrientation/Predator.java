@@ -6,3 +6,9 @@ interface Predator {
         System.out.printf("my food is %s\n", getFood());
     }
 }
+
+//추상 클래스 예제
+abstract class Predator02 extends Animal {
+    abstract String getFood();
+
+}

@@ -14,5 +14,12 @@ public class Sample {
         Predator Lion = new Lion(); //인터페이스
         ZooKeeper.feed(Lion); //feed banana
         ZooKeeper.printfeed(Lion); //my food is banana
+
+        //다형성 예제
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        Bouncer bouncer= new Bouncer();
+        bouncer.barkAnimal(tiger);
+        bouncer.barkAnimal(lion);
     }
 }
